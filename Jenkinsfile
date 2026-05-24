@@ -18,21 +18,16 @@ stages {
            sh 'terraform fmt'
        }
    }
-   stage('terraform init') {
+   stage('terraform Init') {
      steps{
          sh 'terraform init '
       }
   }
-   stage('Terraform Action') {
-    steps {
-        echo "Terraform action is --> ${action}"
-        script {
-            // Only apply --auto-approve if the action is NOT 'plan'
-            def flags = (action == 'plan') ? "" : "--auto-approve"
-            sh "terraform ${action} ${flags}"
+   stage ("terraform Action") {
+      steps {
+          echo "Terraform action is --> ${action}"
+          sh "terraform ${action} --auto-approve"
         }
-    }
-}
-
- }
+     }
+   }
 }
