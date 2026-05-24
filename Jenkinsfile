@@ -29,6 +29,5 @@ stages {
           sh ('terraform ${action} --auto-approve')
         }
      }
-
    }
 }
