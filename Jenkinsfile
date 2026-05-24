@@ -23,7 +23,7 @@ stages {
          sh 'terraform init '
       }
   }
-   stage ('Terraform Action") {
+   stage ('Terraform Action') {
       steps {
           echo "Terraform action is --> ${action}"
           sh "terraform ${action} --auto-approve"
